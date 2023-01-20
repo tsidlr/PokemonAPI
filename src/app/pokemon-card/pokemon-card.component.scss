@@ -1,0 +1,41 @@
+
+
+.eingabeForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.eingabeForm .box {
+  margin-top: 40px;
+  padding-top: 20px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(174, 174, 174);
+  border: 1px solid black;
+  border-radius: 4px;
+}
+.cardcontainer {
+    display: flex;
+    justify-content: center;
+}
+
+.pokemon-card {
+    max-width: 800px;
+    margin-top: 50px;
+    margin-bottom: 8px;
+    border: 1px solid black;
+    background-color: gray;
+    color: white;
+  }
+
+  .warning {
+    color: red;
+  }
+
+  

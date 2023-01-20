@@ -1,0 +1,34 @@
+<!-- Eingabe Feld für die Suche-->
+<div class="eingabeForm">
+    <div class="box">
+  
+      <mat-form-field color="accent">
+        <mat-label>Gib eine ID ein</mat-label>
+        <input matInput #box placeholder="ID" name="ID" />
+      </mat-form-field>
+      <button mat-button color="accent" (click)="getPokemonData(Number(box.value))">
+        Senden
+      </button>
+      <h3 class="warning" *ngIf="checkNumber(box.value)" >Gib bitte eine ID (Zahl) ein.</h3>
+    </div>
+  </div>
+
+  <!-- Pokemon-Card wird hier angezeigt-->
+  <div class="cardcontainer">
+    <mat-card class="pokemon-card">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>{{PokemonData.id}}. {{PokemonData.name}} </mat-card-title>
+            <mat-card-subtitle>Typ: {{PokemonData.types[0].type.name}}</mat-card-subtitle>
+            <mat-card-subtitle>Kampfwert: {{PokemonData.base_experience}}</mat-card-subtitle>
+            <mat-card-subtitle>Größe: {{PokemonData.height}} m</mat-card-subtitle>
+            <mat-card-subtitle>Gewicht: {{PokemonData.weight}} kg</mat-card-subtitle>
+            <img mat-card-sm-image src="{{bild}}" >
+          </mat-card-title-group>
+        </mat-card-header>
+
+        <mat-card-content>
+        </mat-card-content>
+      </mat-card>
+    </div> 
+
