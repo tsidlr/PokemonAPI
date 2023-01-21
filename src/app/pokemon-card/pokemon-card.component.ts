@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ɵɵtsModuleIndicatorApiExtractorWorkaround } from '@angular/material';
+import { PokemonAPIService } from './pokemon-api.service';
 import { Pokemons } from './pokemonAPiFormat'
 
 @Component({
@@ -9,51 +9,26 @@ import { Pokemons } from './pokemonAPiFormat'
 })
 export class PokemonCardComponent {
 
+  PokemonData: Pokemons = {} as Pokemons;
+  bild: string = ""
+  getPokemonData: any;
+  setPokemonData: any;
+  Number: any;
+  checkNumber: any;
+
 
   ngOnInit() {
     this.getPokemonData(25);
   }
 
-  PokemonData: Pokemons = {} as Pokemons;
-  bild: string = ""
+  constructor(private PokemonService: PokemonAPIService) {
 
-  getPokemonData(id: number) {
-
-    let link = `https://pokeapi.co/api/v2/pokemon/${id}/`;
-    fetch(link)
-      .then(response => response.json())
-      .then(data => { this.setPokemonData(data); })
-
+      this.PokemonData = PokemonService.PokemonData;
+      this.bild = PokemonService.bild;
+      this.getPokemonData = PokemonService.getPokemonData;
+      this.setPokemonData = PokemonService.setPokemonData;
+      this.Number = PokemonService.Number;
+      this.checkNumber = PokemonService.checkNumber;
   }
-
-  setPokemonData(data: any) {
-    this.PokemonData = data;
-    //Zur Vereinfacherung
-    this.PokemonData.sprites.other['official-artwork'].front_default = (this.PokemonData.sprites.other['official-artwork'].front_default)
-    this.bild = (this.PokemonData.sprites.other['official-artwork'].front_default);
-
-    this.PokemonData.id = (this.PokemonData.id);
-    this.PokemonData.name = (this.PokemonData.name)
-    this.PokemonData.height = (this.PokemonData.height / 10);
-    this.PokemonData.weight = (this.PokemonData.weight / 10);
-    this.PokemonData.base_experience = (this.PokemonData.base_experience);
-    this.PokemonData.types[0].type.name = (this.PokemonData.types[0].type.name );
- 
-  }
-
-  Number(convert: string) {
-    return Number(convert)
-  }
-
-  checkNumber(check: any) {
-
-    if(!isNaN(check)) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-
 
 }

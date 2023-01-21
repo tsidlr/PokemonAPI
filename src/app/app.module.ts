@@ -7,13 +7,15 @@ import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './material-design/material.modules';
+import { HeaderComponent } from './header/header.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PokemonCardComponent
+    PokemonCardComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
