@@ -10,6 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
 import { PokemonCardComponent } from './home/pokemon-card/pokemon-card.component';
 import { TestComponent } from './test/test.component';
+import { FormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import { TestComponent } from './test/test.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
