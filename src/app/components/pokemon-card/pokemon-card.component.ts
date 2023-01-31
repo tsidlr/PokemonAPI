@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { PokemonAPIService } from './pokemon-api.service';
-import { Pokemon } from './pokemonAPiFormat'
+import { PokemonAPIService } from 'src/app/services/pokemon-api.service';
+import { Pokemon } from 'src/app/services/pokemonAPiFormat';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -8,18 +8,6 @@ import { Pokemon } from './pokemonAPiFormat'
   styleUrls: ['./pokemon-card.component.scss']
 })
 export class PokemonCardComponent {
-
-
-  selectedItem = {
-    name: "",
-    description: "",
-  }
-
-  showDetails () {
-    console.log(this.selectedItem.name, this.selectedItem.description)
-  }
-
-  //______//
 
   PokemonData: Pokemon = {} as Pokemon;
   bild: string = ""

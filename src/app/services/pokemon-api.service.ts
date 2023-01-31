@@ -31,7 +31,6 @@ export class PokemonAPIService {
     this.PokemonData.types[0].type.name = (this.PokemonData.types[0].type.name );
   }
 
-
   Number(convert: string) {
     return Number(convert)
   }
