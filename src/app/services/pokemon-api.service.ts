@@ -43,6 +43,29 @@ export class PokemonAPIService {
       return true;
     }
   }
+/* Hier die Angular Art für einen Reqeust mit HTTPClient
+  //HTTPClient muss impotiert werden in der Datei + HttpClientModule in die app.modules.ts (import { HttpClientModule } from '@angular/common/http';)
+  import { HttpClient } from '@angular/common/http';
+
+  PokemonData: Pokemon = {} as Pokemon
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.getData(25);
+  }
+  
+  // URL der API wird returned
+  getURL (id: number) {
+    return `${BASE_URL}/${id}`
+  }
+
+  // HTTP get request auf die URL + subscribe 
+  getData (id: number) {
+     const data = this.http.get(this.getURL(id));
+     data.subscribe((result: any) => this.PokemonData = result)
+  
+  */
 
 
 }
