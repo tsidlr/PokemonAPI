@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PokemonAPIService } from 'src/app/services/pokemon-api.service';
-import { Pokemon } from 'src/app/services/pokemonAPiFormat';
+import { Pokemon } from 'src/app/interfaces/pokemonInterface';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -9,6 +10,25 @@ import { Pokemon } from 'src/app/services/pokemonAPiFormat';
 })
 export class PokemonCardComponent {
 
+  PokemonData: Pokemon = {} as Pokemon;
+  getPokemonData: any;
+
+  constructor(private http: HttpClient, PokemonData: PokemonAPIService) {
+    this.PokemonData = PokemonData.PokemonData;
+    this.getPokemonData = PokemonData.getPokemonData;
+  }
+
+  ngOnInit () {
+    this.getPokemonData(25)
+  }
+
+
+
+
+  
+
+// Alte Lösung die nicht die stärken von Angular nutzt. vgl: PokemonAPIService
+  /*
   PokemonData: Pokemon = {} as Pokemon;
   bild: string = ""
   getPokemonData: any;
@@ -29,6 +49,6 @@ export class PokemonCardComponent {
       this.setPokemonData = PokemonService.setPokemonData;
       this.Number = PokemonService.Number;
       this.checkNumber = PokemonService.checkNumber;
-  }
+  }*/
 
 }
