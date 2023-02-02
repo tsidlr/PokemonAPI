@@ -2,6 +2,9 @@ import { Injectable, Input } from '@angular/core';
 import { Pokemon } from '../interfaces/pokemonInterface'
 import { HttpClient } from '@angular/common/http';
 
+
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,6 +14,7 @@ export class PokemonAPIService {
   PokemonData: Pokemon = {} as Pokemon;
 
   constructor(private http: HttpClient) {}
+
 
   getPokemonData (id: number) {
     let data = this.http.get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
