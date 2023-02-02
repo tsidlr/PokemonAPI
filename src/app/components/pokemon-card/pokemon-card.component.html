@@ -48,10 +48,10 @@
             <mat-label>Gib eine ID ein</mat-label>
             <input matInput #idRef="ngModel" [(ngModel)]="PokemonData.id" placeholder="ID" name="ID" />
           </mat-form-field>
-          <button mat-button color="accent" (click)="getPokemonData(Number(PokemonData.id))">
+          <button mat-button color="accent" (click)="getPokemonData(PokemonData.id)">
             Senden
           </button>
-          <h3 class="warning" *ngIf="checkNumber(PokemonData.id)">Gib bitte eine ID (Zahl) ein.</h3>
+         <!-- <h3 class="warning" *ngIf="checkNumber(PokemonData.id)">Gib bitte eine ID (Zahl) ein.</h3> -->
         
         </div>
       </div>
@@ -68,7 +68,7 @@
                 <mat-card-subtitle>Kampfwert: {{PokemonData.base_experience}}</mat-card-subtitle>
                 <mat-card-subtitle>Größe: {{PokemonData.height}} m</mat-card-subtitle>
                 <mat-card-subtitle>Gewicht: {{PokemonData.weight}} kg</mat-card-subtitle>
-                <img mat-card-sm-image src="{{bild}}" >
+                <img mat-card-sm-image src="{{PokemonData.sprites.other['official-artwork'].front_default}}" >
               </mat-card-title-group>
             </mat-card-header>
             <mat-card-content>
