@@ -1,11 +1,25 @@
 import { Injectable, Input } from '@angular/core';
-import { Pokemon } from './pokemonAPiFormat'
+import { Pokemon } from '../interfaces/pokemonInterface'
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonAPIService {
 
+
+  PokemonData: Pokemon = {} as Pokemon;
+
+  constructor(private http: HttpClient) {}
+
+  getPokemonData (id: number) {
+    let data = this.http.get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+    data.subscribe((result: any) => this.PokemonData = result)
+  }
+
+
+// Alte Lösung fürs API fetching ohne die Vorteile von Angular vgl: pokemon-card.component.ts
+  /*
   PokemonData: Pokemon = {} as Pokemon;
   bild: string = ""
 
@@ -30,19 +44,5 @@ export class PokemonAPIService {
     this.PokemonData.base_experience = (this.PokemonData.base_experience);
     this.PokemonData.types[0].type.name = (this.PokemonData.types[0].type.name );
   }
-
-  Number(convert: string) {
-    return Number(convert)
-  }
-
-  checkNumber(check: any) {
-
-    if(!isNaN(check)) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-
+*/
 }
