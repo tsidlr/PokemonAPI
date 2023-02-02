@@ -46,7 +46,7 @@ export class PokemonAPIService {
   }
 <<<<<<< HEAD
 */
-=======
+
 
   Number(convert: string) {
     return Number(convert)
@@ -85,5 +85,4 @@ export class PokemonAPIService {
   */
 
 
->>>>>>> 240c64051a12d3bce22a2e723365a8509b1f85db
 }
